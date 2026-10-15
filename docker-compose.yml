@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  pet-app:
+    build: .
+    container_name: pet-crud
+    restart: always
+    ports:
+      - "8080:8000"
+    volumes:
+      - ./data:/app

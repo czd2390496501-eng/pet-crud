@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑宠物信息</title>
+    <style>
+        body {max-width:850px;margin:40px auto;padding:0 20px;font-family:system-ui;}
+        .form-box{background:#f7f7f7;padding:16px;border-radius:6px;}
+        input{margin:6px;padding:7px;font-size:14px;}
+        button{padding:7px 14px;cursor:pointer;}
+    </style>
+</head>
+<body>
+<h1>编辑宠物信息</h1>
+<div class="form-box">
+<form action="/update/{{pet.id}}" method="post">
+    名字：<input type="text" name="name" value="{{pet.name}}" required><br>
+    种类：<input type="text" name="type" value="{{pet.type}}" required><br>
+    年龄：<input type="number" name="age" value="{{pet.age}}" required><br>
+    <button type="submit">保存修改</button>
+    <a href="/">返回列表</a>
+</form>
+</div>
+</body>
+</html>

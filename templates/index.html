@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>宠物管理系统-CRUD</title>
+    <style>
+        body {max-width:850px;margin:40px auto;padding:0 20px;font-family:system-ui;}
+        .pet-item{padding:12px 0;border-bottom:1px solid #ddd;display:flex;justify-content:space-between;align-items:center;}
+        .form-box{background:#f7f7f7;padding:16px;border-radius:6px;margin-bottom:30px;}
+        input{margin:6px;padding:7px;font-size:14px;}
+        button{padding:7px 14px;cursor:pointer;}
+        a{margin:0 6px;}
+    </style>
+</head>
+<body>
+<h1>宠物管理系统</h1>
+<div class="form-box">
+    <h3>新增宠物</h3>
+    <form action="/add" method="post">
+        名字：<input type="text" name="name" required>
+        种类：<input type="text" name="type" placeholder="猫/狗" required>
+        年龄：<input type="number" name="age" required>
+        <button type="submit">提交新增</button>
+    </form>
+</div>
+
+<h3>宠物列表</h3>
+{% for pet in pets %}
+<div class="pet-item">
+    <div>ID:{{pet.id}}｜{{pet.name}}｜{{pet.type}}｜{{pet.age}}岁</div>
+    <div>
+        <a href="/edit/{{pet.id}}">编辑</a>
+        <a href="/delete/{{pet.id}}" onclick="return confirm('确认删除该宠物？')">删除</a>
+    </div>
+{% endfor %}
+</body>
+</html>
